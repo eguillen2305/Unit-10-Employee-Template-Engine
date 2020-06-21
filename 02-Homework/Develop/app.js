@@ -17,7 +17,41 @@ async function askQuestions(employeeList) {
 		'What is the email of the employee?',
 		'What is the role of the employee?'
 	];
-};
+
+	try {
+		const questions = baseQuestions.map((q) => ({ name: q, type: 'input' }));
+		const answers = await inquirer.prompt(questions);
+		console.log(answers['What is the role of the employee?']);
+
+		if (answers['What is the role of the employee?'].toLowerCase() === 'manager') {
+			//Ask what Office Number
+			const officeanswer = await inquirer.prompt({ name: 'What is the office number?', type: 'input' });
+			const name = answers['What is the employee name?'];
+			const id = answers['What is the employee id?'];
+			const email = answers['What is the email of the employee?'];
+			const office = officeanswer['What is the office number?'];
+			const man = new Manager(name, id, email, office);
+			employeeList.push(man);
+		}
+
+		if (answers['What is the role of the employee?'].toLowerCase() === 'intern') {
+			//Ask what school
+			const schoolanswer = await inquirer.prompt({
+				name: "What is the name of the student's school?",
+				type: 'input'
+			});
+			const name = answers['What is the employee name?'];
+			const id = answers['What is the employee id?'];
+			const email = answers['What is the email of the employee?'];
+			const school = schoolanswer["What is the name of the student's school?"];
+			const int = new Intern(name, id, email, school);
+			employeeList.push(int);
+		}
+		return employeeList;
+	} catch (err) {
+		console.log('Error prompting questions', err);
+	}
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
