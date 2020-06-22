@@ -1,3 +1,4 @@
+// Const to each respective "REQUIRE" paths
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -10,8 +11,11 @@ const outputPath = path.join(OUTPUT_DIR, 'team.html');
 
 const render = require('./lib/htmlRenderer');
 
+//ASYNC Asking the user TRIAGE QUESTIONS - From here it will triage and map out where to go.
 async function askQuestions(employeeList) {
-	const baseQuestions = [
+	//baseQuestions const to assess Employee name, id, email and role.The answers
+	//entered will determine where the code will go to next.
+	const triageQuestions = [
 		'What is the employee name?',
 		'What is the employee id?',
 		'What is the email of the employee?',
@@ -19,12 +23,11 @@ async function askQuestions(employeeList) {
 	];
 
 	try {
-		const questions = baseQuestions.map((q) => ({ name: q, type: 'input' }));
+		const questions = triageQuestions.map((q) => ({ name: q, type: 'input' }));
 		const answers = await inquirer.prompt(questions);
 		console.log(answers['What is the role of the employee?']);
-
+		// MANAGER PROMPTS AND ANSWERS ====================
 		if (answers['What is the role of the employee?'].toLowerCase() === 'manager') {
-			//Ask what Office Number
 			const officeanswer = await inquirer.prompt({ name: 'What is the office number?', type: 'input' });
 			const name = answers['What is the employee name?'];
 			const id = answers['What is the employee id?'];
@@ -33,9 +36,9 @@ async function askQuestions(employeeList) {
 			const man = new Manager(name, id, email, office);
 			employeeList.push(man);
 		}
-
+		//IF STATMENT IF THE USER ENTERS THE ROLE OF INTERN
+		//STUDENT PROMPTS AND ANSWERS =======================
 		if (answers['What is the role of the employee?'].toLowerCase() === 'intern') {
-			//Ask what school
 			const schoolanswer = await inquirer.prompt({
 				name: "What is the name of the student's school?",
 				type: 'input'
@@ -47,6 +50,21 @@ async function askQuestions(employeeList) {
 			const int = new Intern(name, id, email, school);
 			employeeList.push(int);
 		}
+		//IF STATMENT IF THE USER ENTERS THE ROLE OF ENGINEER
+		// ENGINEER PROMPTS AND ANSWERS ============================
+		if (answers['What is the role of the employee?'].toLowerCase() === 'engineer') {
+			const githubAnswer = await inquirer.prompt({
+				name: "What is engineer's github screen name?",
+				type: 'input'
+			});
+			const name = answers['What is the employee name?'];
+			const id = answers['What is the employee id?'];
+			const email = answers['What is the email of the employee?'];
+			const github = githubAnswer["What is engineer's github screen name?"];
+			const eng = new Engineer(name, id, email, github);
+			employeeList.push(eng);
+		}
+		//RETURNS EMPLOYEE LIST AND ANSWERS DEPENDING ON ROLES ========
 		return employeeList;
 	} catch (err) {
 		console.log('Error prompting questions', err);
