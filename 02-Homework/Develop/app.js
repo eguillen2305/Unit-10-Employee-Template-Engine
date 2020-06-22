@@ -100,6 +100,8 @@ init();
 //intern.test passed
 //Employee.test passed
 
+//NPM ERROR with manager
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
