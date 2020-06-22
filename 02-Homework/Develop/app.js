@@ -71,6 +71,30 @@ async function askQuestions(employeeList) {
 	}
 }
 
+function writeToFile(fileName, data) {
+	fs.appendFile(fileName, data, function(err) {
+		if (err) throw err;
+		console.log('Saved!');
+	});
+}
+async function init() {
+	let employeeList = [];
+	const numberOfEmployees = 1;
+
+	try {
+		for (let i = 0; i < numberOfEmployees; i++) {
+			employeeList = await askQuestions(employeeList);
+		}
+	} catch (err) {
+		console.log('error:', err);
+	}
+
+	const htmlData = render(employeeList);
+	writeToFile(outputPath, htmlData);
+}
+
+init();
+
 //NPM TEST SUCCESS
 // Engineer.test passed
 //intern.test passed
