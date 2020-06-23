@@ -12,7 +12,7 @@ Software engineering team generator command line application. The application wi
 
 ![GIF DEMO](README-DEMO.gif)
 
-## How to use my App
+## How to use the Application
 
 ### Online Demo
 You can test a fully working live demo by downloading and running an NPM INSTALL
