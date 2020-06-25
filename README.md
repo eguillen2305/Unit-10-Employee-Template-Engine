@@ -27,7 +27,7 @@ Software engineering team generator command line application. The application wi
  
  ![](http://williamavasquez.herokuapp.com/img/node.png)
  
- ![](https://blog.launchdarkly.com/wp-content/uploads/2018/10/visualstudio_code-card.png)
+ ![](https://blog.launchdarkly.com/wp-content/uploads/2018/10/visualstudio_code-card.png=100x)
 
 
 ## Author
