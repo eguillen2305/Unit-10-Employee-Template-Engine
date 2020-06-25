@@ -21,11 +21,11 @@ You can test a fully working live demo by downloading and running an NPM INSTALL
 
 ### Local Demo
 1. first clone the application to your local file
-`git clone README Generator`
+`git clone`
 2. install the packages with npm `npm install`
-3. run the server with `node index.js `
+3. run the server with `node app.js`
 4. Answer the prompts
-5. The README will be automatically saved locally. 
+5. The template will be then create a file called "team.html" in the output folder. 
 
 ## Technology Used
  ![](http://williamavasquez.herokuapp.com/img/js.png)
