@@ -72,7 +72,7 @@ async function askQuestions(employeeList) {
 		console.log('Error prompting questions', err);
 	}
 }
-
+//Function that saves the respective answers and then does a fs.appendfile to the output.html
 function writeToFile(fileName, data) {
 	fs.appendFile(fileName, data, function(err) {
 		if (err) throw err;
