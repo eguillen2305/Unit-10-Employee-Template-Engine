@@ -14,12 +14,7 @@ Software engineering team generator command line application. The application wi
 
 ## How to use the Application
 
-### Online Demo
-You can test a fully working live demo by downloading and running an NPM INSTALL
-
-
-
-### Local Demo
+### Local Demo Install
 1. first clone the application to your local file
 `git clone`
 2. install the packages with npm `npm install`
@@ -31,6 +26,8 @@ You can test a fully working live demo by downloading and running an NPM INSTALL
  ![](http://williamavasquez.herokuapp.com/img/js.png)
  
  ![](http://williamavasquez.herokuapp.com/img/node.png)
+ 
+ ![](https://blog.launchdarkly.com/wp-content/uploads/2018/10/visualstudio_code-card.png)
 
 
 ## Author
