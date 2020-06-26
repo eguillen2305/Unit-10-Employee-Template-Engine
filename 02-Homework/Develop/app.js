@@ -72,6 +72,8 @@ async function askQuestions(employeeList) {
 		console.log('Error prompting questions', err);
 	}
 }
+
+//Make a sep. Function add new employee. - Ask them if they say yes and then I can restart the function.
 //Function that saves the respective answers and then does a fs.appendfile to the output.html
 function writeToFile(fileName, data) {
 	fs.appendFile(fileName, data, function(err) {
